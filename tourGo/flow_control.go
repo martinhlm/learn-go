@@ -70,7 +70,16 @@ func switchFunc() {
 
 func deferFunc() {
 	defer fmt.Println("world")
-	fmt.Printf("Hello")
+	fmt.Println("Hello")
+
+	// Defer function calls are pushed on to stack. When a function returns,
+	// its deferred calls are executed in last-in-first-out order.
+	fmt.Println("counting...")
+	for i := 0; i < 10; i++ {
+		defer fmt.Print(i)
+	}
+
+	fmt.Println("done")
 }
 
 func flow() {
