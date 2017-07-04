@@ -8,8 +8,9 @@ import (
 func vars() {
 	var c, python, java bool
 	cpp, py, jav := true, false, "no!"
+	const Pi = 3.14
 
-	fmt.Println(c, python, java, cpp, py, jav)
+	fmt.Println(c, python, java, cpp, py, jav, Pi)
 }
 
 func add(x, y int) int { 
@@ -27,6 +28,7 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
+	vars()
 	fmt.Println("Now you have %g problems.", math.Sqrt(7))
 	fmt.Println(add(42, 13))
 
