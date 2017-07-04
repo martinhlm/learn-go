@@ -3,6 +3,7 @@ package main
 import ( 
 	"fmt"
 	"math"
+	"runtime"
 )
 
 func forTypes() {
@@ -42,8 +43,21 @@ func pow(x, n, lim float64) float64 {
 	return lim
 }
 
+func switchFunc() {
+	fmt.Print("Go, runs on ")
+	switch os := runtime.GOOS; os {
+	case "darwin":
+		fmt.Println("OS X")
+	case "linux":
+		fmt.Println("Linux")
+	default:
+		fmt.Printf("%s", os)
+	}
+}
+
 func flow() {
 	forTypes()
 	fmt.Println(sqrt(2))
 	fmt.Println(pow(3, 2, 10))
+	switchFunc()
 }
