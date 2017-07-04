@@ -22,8 +22,15 @@ func pointers() {
 	fmt.Println(j) // see the new value of j
 }
 
+func structsFunc() {
+	v := Vertex{1, 2}
+	v.X = 4
+	fmt.Println(v.X)
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
 	fmt.Println(Vertex{1, 2})
+	structsFunc()
 }
