@@ -2,7 +2,7 @@ package main
 
 import "fmt"
 
-func flow() {
+func forTypes() {
 	sum := 0
 	for i := 0; i < 10; i++ {
 		sum += i
@@ -13,5 +13,13 @@ func flow() {
 		sum += sum
 	}
 
+	for sum < 1000 {
+		sum += sum
+	}
+
 	fmt. Println(sum)
+}
+
+func flow() {
+	forTypes()
 }
