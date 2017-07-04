@@ -31,7 +31,15 @@ func sqrt(x float64) string {
 	return fmt.Sprint(math.Sqrt(x))
 }
 
+func pow(x, n, lim float64) float64 {
+	if v := math.Pow(x, n); v < lim {
+		return v
+	}
+	return lim
+}
+
 func flow() {
 	forTypes()
 	fmt.Println(sqrt(2))
+	fmt.Println(pow(3, 2, 10))
 }
