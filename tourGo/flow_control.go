@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import ( 
+	"fmt"
+	"math"
+)
 
 func forTypes() {
 	sum := 0
@@ -20,6 +23,15 @@ func forTypes() {
 	fmt. Println(sum)
 }
 
+
+func sqrt(x float64) string {
+	if x < 0 {
+		return sqrt(-x) + "i"
+	}
+	return fmt.Sprint(math.Sqrt(x))
+}
+
 func flow() {
 	forTypes()
+	fmt.Println(sqrt(2))
 }
