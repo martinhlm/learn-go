@@ -5,8 +5,12 @@ import (
 	"math"
 )
 
-var c, python, java bool
-var cpp, python_, java_ = true, false, "no!"
+func vars() {
+	var c, python, java bool
+	cpp, py, jav := true, false, "no!"
+
+	fmt.Println(c, python, java, cpp, py, jav)
+}
 
 func add(x, y int) int { 
 	return 	x + y
