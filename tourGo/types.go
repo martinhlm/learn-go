@@ -30,8 +30,15 @@ func structsFunc() {
 	// Struct fields can be accessed through a struct pointer.
 	p := &v
 	p.X = 1e9
-
 	fmt.Println(v)
+
+	var (
+		v1 = Vertex{1, 2}  // has type Vertex
+		v2 = Vertex{X: 1}  // Y:0 is implicit
+		v3 = Vertex{}      // X:0 and Y:0
+		r  = &Vertex{1, 2} // has type *Vertex
+	)
+	fmt.Println(v1, r, v2, v3)	
 }
 
 func more_types() {
