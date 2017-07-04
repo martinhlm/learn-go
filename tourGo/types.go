@@ -26,6 +26,12 @@ func structsFunc() {
 	v := Vertex{1, 2}
 	v.X = 4
 	fmt.Println(v.X)
+
+	// Struct fields can be accessed through a struct pointer.
+	p := &v
+	p.X = 1e9
+
+	fmt.Println(v)
 }
 
 func more_types() {
