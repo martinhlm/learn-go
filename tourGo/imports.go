@@ -5,6 +5,8 @@ import (
 	"math"
 )
 
+var c, python, java bool
+
 func add(x, y int) int { 
 	return 	x + y
 }
