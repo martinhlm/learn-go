@@ -68,9 +68,15 @@ func switchFunc() {
 	}
 }
 
+func deferFunc() {
+	defer fmt.Println("world")
+	fmt.Printf("Hello")
+}
+
 func flow() {
 	forTypes()
 	fmt.Println(sqrt(2))
 	fmt.Println(pow(3, 2, 10))
 	switchFunc()
+	deferFunc()
 }
