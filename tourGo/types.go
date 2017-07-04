@@ -52,10 +52,17 @@ func arraysFunc() {
 	fmt.Println(primes)
 }
 
+func slicesFunc() {
+	primes := [6]int{2, 3, 5, 7, 11, 13}
+	var s []int = primes[1:4]
+	fmt.Println(s)
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
 	fmt.Println(Vertex{1, 2})
 	structsFunc()
 	arraysFunc()
+	slicesFunc()
 }
