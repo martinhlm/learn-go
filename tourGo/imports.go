@@ -27,7 +27,7 @@ func split(sum int) (x, y int) {
 	return
 }
 
-func main() {
+func basics() {
 	vars()
 	fmt.Println("Now you have %g problems.", math.Sqrt(7))
 	fmt.Println(add(42, 13))
