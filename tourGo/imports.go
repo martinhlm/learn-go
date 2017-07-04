@@ -36,4 +36,5 @@ func main() {
 	fmt.Println(a, b)
 
 	fmt.Println(split(19))
+	flow()
 }
