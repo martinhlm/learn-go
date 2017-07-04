@@ -37,4 +37,5 @@ func main() {
 
 	fmt.Println(split(19))
 	flow()
+	more_types()
 }
