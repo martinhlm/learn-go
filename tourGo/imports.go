@@ -6,6 +6,7 @@ import (
 )
 
 var c, python, java bool
+var cpp, python_, java_ = true, false, "no!"
 
 func add(x, y int) int { 
 	return 	x + y
