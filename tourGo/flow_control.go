@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"math"
 	"runtime"
+	"time"
 )
 
 func forTypes() {
@@ -52,6 +53,18 @@ func switchFunc() {
 		fmt.Println("Linux")
 	default:
 		fmt.Printf("%s", os)
+	}
+
+	// clean way to write long if-else chains
+	// switch without a condition si the same as switch true
+	t := time.Now()
+	switch {
+	case t.Hour() < 12:
+		fmt.Println("morning")
+	case t.Hour() < 17:
+		fmt.Println("afternoon")
+	default:
+		fmt.Println("night")
 	}
 }
 
