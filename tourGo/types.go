@@ -9,6 +9,10 @@ type Vertex struct {
 	Y int
 }
 
+type Vert struct {
+	Lat, Long float64
+}
+
 func pointers() {
 	i, j := 42, 2701
 
@@ -118,6 +122,15 @@ func rangeFunc() {
 	}
 }
 
+func mapsFunc() {
+	var m map[string]Vert
+
+	// make function returns a map of the given type, initialized and ready
+	m = make(map[string]Vert)
+	m["Bell labs"] = Vert{40.234, -74.33289,}
+	fmt.Println(m["Bell labs"])
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
@@ -127,4 +140,5 @@ func more_types() {
 	slicesFunc()
 	sliceAppend()
 	rangeFunc()
+	mapsFunc()
 }
