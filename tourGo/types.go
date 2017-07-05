@@ -176,6 +176,21 @@ func compute(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
 
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func closureFunc() {
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++ {
+			fmt.Println(pos(i), neg(-2*i))
+	}
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
@@ -188,4 +203,5 @@ func more_types() {
 	mapsFunc()
 	mutatingMaps()
 	functionValues()
+	closureFunc()
 }
