@@ -176,6 +176,9 @@ func compute(fn func(float64, float64) float64) float64 {
 	return fn(3, 4)
 }
 
+/* 
+	Go functions may be closures
+*/
 func adder() func(int) int {
 	sum := 0
 	return func(x int) int {
