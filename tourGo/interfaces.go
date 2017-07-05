@@ -55,7 +55,21 @@ func describe(i I) {
 	fmt.Printf("(%v, %T)\n", i, i)
 }
 
+func typeAssertions() {
+	var i interface{} = "hello"
+
+	s := i.(string)
+	fmt.Println(s)
+
+	s, ok := i.(string)
+	fmt.Println(s, ok)
+
+	f, ok := i.(float64)
+	fmt.Println(f, ok)
+}
+
 func interfaces() {
 	interfacesFunc()
+	typeAssertions()
 }
 
