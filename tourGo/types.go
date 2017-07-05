@@ -129,6 +129,16 @@ func mapsFunc() {
 	m = make(map[string]Vert)
 	m["Bell labs"] = Vert{40.234, -74.33289,}
 	fmt.Println(m["Bell labs"])
+
+	var ma = map[string]Vert{
+		"Bells lab": Vert{
+			40.3333, -23.9999,
+		},
+		"google": Vert{
+			98.4444, 45.2222,
+		},
+	}
+	fmt.Println(ma["Bells lab"])
 }
 
 func more_types() {
