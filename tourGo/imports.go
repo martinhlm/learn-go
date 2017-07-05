@@ -41,5 +41,6 @@ func main() {
 
 	//more_types()
 	//methodsInterfaces()
-	interfaces()
+	//interfaces()
+	concurrency()
 }
