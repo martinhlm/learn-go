@@ -111,6 +111,11 @@ func rangeFunc() {
 	for i,v := range pow {
 		fmt.Printf("2**%d = %d\n", i, v)
 	}
+
+	// you can skip the index or value by assigning to _
+	for _, value := range pow {
+		fmt.Printf("%d\n", value)
+	}
 }
 
 func more_types() {
