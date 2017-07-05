@@ -105,6 +105,13 @@ func printSlice(s []int) {
 	fmt.Printf("len=%d cap=%d %v\n", len(s), cap(s), s)
 }
 
+func rangeFunc() {
+	var pow = []int{1, 2, 4, 8}
+
+	for i,v := range pow {
+		fmt.Printf("2**%d = %d\n", i, v)
+	}
+}
 
 func more_types() {
 	fmt.Println("pointers")
@@ -114,4 +121,5 @@ func more_types() {
 	arraysFunc()
 	slicesFunc()
 	sliceAppend()
+	rangeFunc()
 }
