@@ -139,6 +139,14 @@ func mapsFunc() {
 		},
 	}
 	fmt.Println(ma["Bells lab"])
+	
+	// if the top level type is just a type name, you can omit it from the
+	// elements of the literal
+	var mapp = map[string]Vert{
+		"Bells lab": { 40.3333, -23.9999 },
+		"google": { 98.4444, 45.2222 },
+	}
+	fmt.Println(mapp["Bells lab"])
 }
 
 func more_types() {
