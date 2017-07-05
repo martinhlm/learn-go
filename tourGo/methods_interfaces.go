@@ -11,10 +11,6 @@ type Mertex struct {
 
 type MyFloat float64
 
-type Abser interface {
-	Abs() float64
-}
-
 /* 
 	Go does not have classes. However, you can define methods on types.
 	A method is a function with a special 'receiver' argument.
@@ -45,21 +41,6 @@ func (f MyFloat) Abs() float64 {
 	return float64(f)
 }
 
-func interfacesFunc() {
-	var a Abser
-	f := MyFloat(-math.Sqrt2)
-	v := Mertex{3, 4}
-
-	a = f 	// a MyFloat implements Abser
-	a = &v 	// a *Mertex implements Abser
-
-	// v is Mertex and does NOT implement Abser
-	//a = v //error
-
-	fmt.Println(a.Abs())
-}
-
 func methodsInterfaces() {
 	methods()
-	interfacesFunc()
 }
