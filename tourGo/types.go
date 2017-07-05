@@ -149,6 +149,19 @@ func mapsFunc() {
 	fmt.Println(mapp["Bells lab"])
 }
 
+func mutatingMaps() {
+	m := make(map[string]int)
+
+	m["answer"] = 24
+	fmt.Println("the value: ", m["answer"])
+	m["answer"] = 48
+	fmt.Println("the value: ", m["answer"])
+	delete(m, "answer")
+	fmt.Println("the value: ", m["answer"])
+	v, ok := m["answer"]
+	fmt.Println("the value: ", v, "present?", ok)
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
@@ -159,4 +172,5 @@ func more_types() {
 	sliceAppend()
 	rangeFunc()
 	mapsFunc()
+	mutatingMaps()
 }
