@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"math"
 )
 
 type Vertex struct {
@@ -162,6 +163,19 @@ func mutatingMaps() {
 	fmt.Println("the value: ", v, "present?", ok)
 }
 
+func functionValues() {
+	hypot := func(x, y float64) float64 {
+		return math.Sqrt(x*x + y*y)
+	}
+	fmt.Println(hypot(5, 12))
+
+	fmt.Println(compute(hypot))
+}
+
+func compute(fn func(float64, float64) float64) float64 {
+	return fn(3, 4)
+}
+
 func more_types() {
 	fmt.Println("pointers")
 	pointers()
@@ -173,4 +187,5 @@ func more_types() {
 	rangeFunc()
 	mapsFunc()
 	mutatingMaps()
+	functionValues()
 }
