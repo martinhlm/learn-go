@@ -2,8 +2,9 @@ package main
 
 import ( 
 	"fmt" 
-	"math"
+	//"math"
 )
+
 
 func vars() {
 	var c, python, java bool
@@ -28,15 +29,17 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
-	vars()
-	fmt.Println("Now you have %g problems.", math.Sqrt(7))
-	fmt.Println(add(42, 13))
+	//vars()
+	//fmt.Println("Now you have %g problems.", math.Sqrt(7))
+	//fmt.Println(add(42, 13))
 
-	a, b := swap("hello", "world")
-	fmt.Println(a, b)
+	//a, b := swap("hello", "world")
+	//fmt.Println(a, b)
 
-	fmt.Println(split(19))
-	flow()
-	more_types()
-	methodsInterfaces()
+	//fmt.Println(split(19))
+	//flow()
+
+	//more_types()
+	//methodsInterfaces()
+	interfaces()
 }

@@ -17,6 +17,11 @@ type Abser interface {
 	Abs() float64
 }
 
+type Person struct {
+	Name string
+	Age int
+}
+
 func (t *T) M() {
 	if t == nil {
 		fmt.Println("<nil>")
@@ -68,8 +73,19 @@ func typeAssertions() {
 	fmt.Println(f, ok)
 }
 
+func (p Person) String() string {
+	return fmt.Sprintf("%v (%v years)", p.Name, p.Age)
+}
+
+func stringersFunc() {
+	a := Person{"Arthur Dent", 42}
+	z := Person{"Zhap Beeble", 9001}
+	fmt.Println(a, z)
+}
+
 func interfaces() {
 	interfacesFunc()
 	typeAssertions()
+	stringersFunc()
 }
 
