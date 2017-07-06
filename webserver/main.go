@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"regexp"
 )
 
 func main() {
@@ -15,5 +16,13 @@ func main() {
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Hello, web")
+	re := regexp.MustCompile("^(.+)@golang.org$")
+	path := r.URL.Path[1:]
+	match := re.FindAllStringSubmatch(path, -1)
+
+	if match != nil {
+		fmt.Fprintf(w, "hello, gopher %s\n", match[0][1])
+		return
+	}
+	fmt.Fprintf(w, "Hello, web %s\n", path)
 }
