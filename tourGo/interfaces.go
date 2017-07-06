@@ -2,10 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io" // specifies the io.Reader interface, which represents the read
 	"math"
 	"time"
-	"io"		// specifies the io.Reader interface, which represents the read
-				// end of a stream of data
+	// end of a stream of data
 	"strings"
 )
 
@@ -23,7 +23,7 @@ type Abser interface {
 
 type Person struct {
 	Name string
-	Age int
+	Age  int
 }
 
 type MyError struct {
@@ -44,8 +44,8 @@ func interfacesFunc() {
 	f := MyFloat(-math.Sqrt2)
 	v := Mertex{3, 4}
 
-	a = f 	// a MyFloat implements Abser
-	a = &v 	// a *Mertex implements Abser
+	a = f  // a MyFloat implements Abser
+	a = &v // a *Mertex implements Abser
 
 	// v is Mertex and does NOT implement Abser
 	//a = v //error
