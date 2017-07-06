@@ -1,10 +1,10 @@
 package main
 
-import ( 
-	"fmt" 
+import (
+	"fmt"
+	"math"
 	//"math"
 )
-
 
 func vars() {
 	var c, python, java bool
@@ -14,8 +14,8 @@ func vars() {
 	fmt.Println(c, python, java, cpp, py, jav, Pi)
 }
 
-func add(x, y int) int { 
-	return 	x + y
+func add(x, y int) int {
+	return x + y
 }
 
 func swap(x, y string) (string, string) {
@@ -29,18 +29,18 @@ func split(sum int) (x, y int) {
 }
 
 func main() {
-	//vars()
-	//fmt.Println("Now you have %g problems.", math.Sqrt(7))
-	//fmt.Println(add(42, 13))
+	vars()
+	fmt.Println("Now you have %g problems.", math.Sqrt(7))
+	fmt.Println(add(42, 13))
 
-	//a, b := swap("hello", "world")
-	//fmt.Println(a, b)
+	a, b := swap("hello", "world")
+	fmt.Println(a, b)
 
-	//fmt.Println(split(19))
-	//flow()
+	fmt.Println(split(19))
+	flow()
 
-	//more_types()
-	//methodsInterfaces()
-	//interfaces()
+	more_types()
+	methodsInterfaces()
+	interfaces()
 	concurrency()
 }
