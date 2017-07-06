@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	_ "net/http/pprof" // _ asegurarse que goimports no lo borre
 	"regexp"
 )
 
