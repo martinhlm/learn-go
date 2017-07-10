@@ -1,7 +1,7 @@
 package posts
 
 import (
-	"fmt"
+	"encoding/json"
 	"net/http"
 )
 
@@ -13,11 +13,29 @@ type Post struct {
 	Favorite bool
 }
 
+var posts = []Post{
+	{
+		"1",
+		"Go is awesome",
+		"Gopher",
+		"http://www.evanmiller.org/images/go-gopher3.png",
+		true,
+	},
+	{
+		"2",
+		"Go is awesome",
+		"Gopher",
+		"http://www.evanmiller.org/images/go-gopher3.png",
+		true,
+	},
+}
+
 // func that calls before main
 func init() {
 	http.HandleFunc("/posts", listPosts)
 }
 
 func listPosts(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "hello world!")
+	enc := json.NewEncoder(w)
+	enc.Encode(posts)
 }
