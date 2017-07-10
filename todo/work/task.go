@@ -12,3 +12,13 @@ func NewTask(title string) (*Task, error) {
 	}
 	return &Task{title}, nil
 }
+
+type TaskManager struct{}
+
+func NewTaskManager() *TaskManager {
+	return nil
+}
+
+func (m *TaskManager) Save(task *Task) error {
+	return nil
+}
