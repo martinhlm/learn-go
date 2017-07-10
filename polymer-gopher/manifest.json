@@ -1,0 +1,7 @@
+{
+  "name": "polymer-gopher",
+  "short_name": "polymer-gopher",
+  "description": "Testing polymer and go application",
+  "start_url": "/",
+  "display": "standalone"
+}
