@@ -33,3 +33,20 @@ func TestSaveTask(t *testing.T) {
 		t.Errorf("unexpected error: %v", err)
 	}
 }
+
+func TestSaveTaskAndRetrive(t *testing.T) {
+	task := newTaskOrFatal(t, "Learn Go")
+
+	m := NewTaskManager()
+	err := m.Save(task)
+	if err != nil {
+		t.Errorf("unexpected error: %v", err)
+	}
+	all := m.All()
+	if len(all) != 1 {
+		t.Fatalf("expected one task, got %v", len(all))
+	}
+	if all[0].Title != task.Title {
+		t.Errorf("expected title %q, got %q", title.Task, all[0].Title)
+	}
+}
