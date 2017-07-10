@@ -1,6 +1,7 @@
 # \<polymer-gopher\>
 
-Testing polymer and go application
+Testing polymer and go application from "Polymer Gopher by Francesc Campoy" -
+github.com/googlesamples/cloud-polymer-go
 
 ## Install the Polymer-CLI
 
