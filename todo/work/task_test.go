@@ -47,6 +47,6 @@ func TestSaveTaskAndRetrive(t *testing.T) {
 		t.Fatalf("expected one task, got %v", len(all))
 	}
 	if all[0].Title != task.Title {
-		t.Errorf("expected title %q, got %q", title.Task, all[0].Title)
+		t.Errorf("expected title %q, got %q", task.Title, all[0].Title)
 	}
 }

@@ -22,3 +22,7 @@ func NewTaskManager() *TaskManager {
 func (m *TaskManager) Save(task *Task) error {
 	return nil
 }
+
+func (m *TaskManager) All() []*Task {
+	return nil
+}
