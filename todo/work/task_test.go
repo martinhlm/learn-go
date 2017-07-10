@@ -34,7 +34,7 @@ func TestSaveTask(t *testing.T) {
 	}
 }
 
-func TestSaveTaskAndRetrive(t *testing.T) {
+func TestSaveTaskAndRetrieve(t *testing.T) {
 	task := newTaskOrFatal(t, "Learn Go")
 
 	m := NewTaskManager()
