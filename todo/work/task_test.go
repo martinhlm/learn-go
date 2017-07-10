@@ -8,3 +8,10 @@ func TestNewTask(t *testing.T) {
 		t.Errorf("expected learn Go, got %v", task.Title)
 	}
 }
+
+func TestNewTaskWithEmptyTitle(t *testing.T) {
+	task := NewTask("")
+	if task != nil {
+		t.Errorf("expected nil, got %#v", task)
+	}
+}
