@@ -2,7 +2,11 @@ package posts
 
 import (
 	"encoding/json"
+	"log"
 	"net/http"
+
+	"google.golang.org/appengine"
+	"google.golang.org/appengine/datastore"
 )
 
 type Post struct {
@@ -13,29 +17,24 @@ type Post struct {
 	Favorite bool
 }
 
-var posts = []Post{
-	{
-		"1",
-		"Go is awesome",
-		"Gopher",
-		"http://www.evanmiller.org/images/go-gopher3.png",
-		true,
-	},
-	{
-		"2",
-		"Go is awesome",
-		"Gopher",
-		"http://www.evanmiller.org/images/go-gopher3.png",
-		true,
-	},
-}
-
 // func that calls before main
 func init() {
 	http.HandleFunc("/posts", listPosts)
 }
 
 func listPosts(w http.ResponseWriter, r *http.Request) {
+	c := appengine.NewContext(r)
+
+	posts := []Post{}
+	_, err := datastore.NewQuery("Post").GetAll(c, &posts)
+	if err != nil {
+		//c.Errorf("fetching posts: %v", err)
+		return
+	}
+
 	enc := json.NewEncoder(w)
-	enc.Encode(posts)
+	err = enc.Encode(posts)
+	if err != nil {
+		log.Printf("encoding: %v", err)
+	}
 }
