@@ -2,6 +2,7 @@ package posts
 
 import (
 	"fmt"
+	"log"
 
 	"github.com/GoogleCloudPlatform/go-endpoints/endpoints"
 
@@ -33,7 +34,13 @@ type AddRequest struct {
 
 // func that calls before main
 func init() {
-	endpoints.RegisterService(PostAPI{}, "posts", "v1", "posts api", true)
+	api, err := endpoints.RegisterService(PostAPI{}, "posts", "v1", "posts api", true)
+	if err != nil {
+		log.Fatal(err)
+	}
+	info := api.MethodByName("SetFavorite").Info()
+	info.Name = "setFavorite"
+
 	endpoints.HandleHTTP()
 }
 
