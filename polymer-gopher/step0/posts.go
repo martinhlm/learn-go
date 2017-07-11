@@ -33,6 +33,7 @@ type AddRequest struct {
 
 // func that calls before main
 func init() {
+	endpoints.RegisterService(PostAPI{}, "posts", "v1", "posts api", true)
 	endpoints.HandleHTTP()
 }
 
