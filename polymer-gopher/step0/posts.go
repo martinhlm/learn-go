@@ -38,8 +38,12 @@ func init() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	info := api.MethodByName("SetFavorite").Info()
-	info.Name = "setFavorite"
+	info := api.MethodByName("List").Info()
+	info.Name, info.HTTPMethod, info.Path = "getPosts", "GET", "posts"
+	info = api.MethodByName("SetFavorite").Info()
+	info.Name, info.HTTPMethod, info.Path = "setFavorite", "PUT", "posts"
+	info = api.MethodByName("Add").Info()
+	info.Name, info.HTTPMethod, info.Path = "addPost", "POST", "posts"
 
 	endpoints.HandleHTTP()
 }
