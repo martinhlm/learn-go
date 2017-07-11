@@ -18,7 +18,7 @@ import (
 type PostAPI struct{}
 
 type Post struct {
-	UID      string
+	UID      *datastore.Key
 	Text     string
 	Username string
 	Avatar   string
@@ -70,5 +70,7 @@ func (PostAPI) Add(c context.Context, r *AddRequest) (*Post, error) {
 	if err != nil {
 		return nil, fmt.Errorf("put post: %v", err)
 	}
+	p.UID = key
+
 	return &p, nil
 }
