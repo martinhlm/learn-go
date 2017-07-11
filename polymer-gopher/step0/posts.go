@@ -14,7 +14,7 @@ import (
 type PostAPI struct{}
 
 type Post struct {
-	UID      *datastore.Key
+	UID      *datastore.Key `datastore:"-"` // name in datastore => don't store this
 	Text     string
 	Username string
 	Avatar   string
