@@ -14,15 +14,15 @@ import (
 type PostAPI struct{}
 
 type Post struct {
-	UID      *datastore.Key `datastore:"-"` // name in datastore => don't store this
-	Text     string
-	Username string
-	Avatar   string
-	Favorite bool
+	UID      *datastore.Key `json:"uid" datastore:"-"` // name in datastore => don't store this
+	Text     string         `json:"text"`
+	Username string         `json:"username"`
+	Avatar   string         `json:"avatar"`
+	Favorite bool           `json:"favorite"`
 }
 
 type Posts struct {
-	Posts []Post
+	Posts []Post `json:"posts"`
 }
 
 type AddRequest struct {
