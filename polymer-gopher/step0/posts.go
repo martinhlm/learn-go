@@ -2,7 +2,6 @@ package posts
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/GoogleCloudPlatform/go-endpoints/endpoints"
 
@@ -36,7 +35,7 @@ type AddRequest struct {
 func init() {
 	api, err := endpoints.RegisterService(PostAPI{}, "posts", "v1", "posts api", true)
 	if err != nil {
-		log.Fatal(err)
+		panic(err)
 	}
 	info := api.MethodByName("List").Info()
 	info.Name, info.HTTPMethod, info.Path = "getPosts", "GET", "posts"
