@@ -1,16 +1,12 @@
 package posts
 
 import (
-	"encoding/json"
 	"fmt"
-	"log"
-	"net/http"
 
 	"github.com/GoogleCloudPlatform/go-endpoints/endpoints"
 
 	"golang.org/x/net/context"
 
-	"google.golang.org/appengine"
 	"google.golang.org/appengine/datastore"
 )
 
@@ -41,21 +37,18 @@ func init() {
 }
 
 // method
-func (PostAPI) list(w http.ResponseWriter, r *http.Request) {
-	c := appengine.NewContext(r)
-
+func (PostAPI) List(c context.Context) (*Posts, error) {
 	posts := []Post{}
-	_, err := datastore.NewQuery("Post").GetAll(c, &posts)
+	keys, err := datastore.NewQuery("Post").GetAll(c, &posts)
 	if err != nil {
-		//c.Errorf("fetching posts: %v", err)
-		return
+		return nil, err
 	}
 
-	enc := json.NewEncoder(w)
-	err = enc.Encode(posts)
-	if err != nil {
-		log.Printf("encoding: %v", err)
+	for i, k := range keys {
+		posts[i].UID = k
 	}
+
+	return &Posts{posts}, nil
 }
 
 func (PostAPI) Add(c context.Context, r *AddRequest) (*Post, error) {
