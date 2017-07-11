@@ -68,3 +68,27 @@ func (PostAPI) Add(c context.Context, r *AddRequest) (*Post, error) {
 
 	return &p, nil
 }
+
+type SetFavoriteRequest struct {
+	UID      *datastore.Key
+	Favorite bool
+}
+
+func (PostAPI) SetFavorite(c context.Context, r *SetFavoriteRequest) error {
+	return datastore.RunInTransaction(c, func(c context.Context) error {
+		var post Post
+		err := datastore.Get(c, r.UID, &post)
+		if err != nil {
+			return fmt.Errorf("get post: %v", err)
+		}
+
+		post.Favorite = r.Favorite
+
+		_, err = datastore.Put(c, r.UID, &post)
+		if err != nil {
+			return fmt.Errorf("update post: %v", err)
+		}
+
+		return nil
+	}, nil)
+}
