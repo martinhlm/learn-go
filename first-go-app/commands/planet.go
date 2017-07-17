@@ -15,9 +15,7 @@ var RootCmd = &cobra.Command{
 	Short: `Dagobah is an awesome planet`,
 	Long: `Dagobah provides planet style RSS aggregation. It is inspired by
 	python planet. Simple yaml config and it's own server`,
-	Run: func(cmd *cobra.Command, args []string) {
-		fmt.Println("Dagobah runs")
-	},
+	Run: rootRun,
 }
 
 func init() {
@@ -41,4 +39,9 @@ func Execute() {
 		fmt.Println(err)
 		os.Exit(-1)
 	}
+}
+
+func rootRun(cmd *cobra.Command, args []string) {
+	fmt.Println(viper.Get("feeds"))
+	fmt.Println(viper.GetString("appname"))
 }
