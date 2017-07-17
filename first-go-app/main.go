@@ -1,7 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"testing/first-go-app/commands"
+)
 
 func main() {
-	fmt.Println("Go!")
+	commands.Execute()
 }
