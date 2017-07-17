@@ -1,0 +1,7 @@
+appname: "Dagobah"
+feeds:
+    - "http://spf13.com/index.xml"
+    - "http://dave.cheney.net/feed"
+    - "http://www.goinggo.net/feeds/posts/default"
+    - "http://blog.labix.org/feed"
+    - "http://blog.golang.org/feed.atom"
