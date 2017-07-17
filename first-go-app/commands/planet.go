@@ -5,7 +5,10 @@ import (
 	"os"
 
 	"github.com/spf13/cobra"
+	"github.com/spf13/viper"
 )
+
+var CfgFile string
 
 var RootCmd = &cobra.Command{
 	Use:   "dagobah",
@@ -15,6 +18,21 @@ var RootCmd = &cobra.Command{
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("Dagobah runs")
 	},
+}
+
+func init() {
+	cobra.OnInitialize(initConfig)
+	RootCmd.PersistentFlags().StringVar(&CfgFile, "config", "", "config file")
+}
+
+func initConfig() {
+	if CfgFile != "" {
+		viper.SetConfigFile(CfgFile)
+	}
+	viper.SetConfigName("config")
+	viper.AddConfigPath("/etc/dagobah/")
+	viper.AddConfigPath("$GOPATH/src/testing/first-go-app/.dagobah/")
+	viper.ReadInConfig()
 }
 
 func Execute() {
