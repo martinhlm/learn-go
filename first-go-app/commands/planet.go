@@ -34,6 +34,7 @@ func initConfig() {
 }
 
 func Execute() {
+	addCommands()
 	err := RootCmd.Execute()
 	if err != nil {
 		fmt.Println(err)
@@ -44,4 +45,8 @@ func Execute() {
 func rootRun(cmd *cobra.Command, args []string) {
 	fmt.Println(viper.Get("feeds"))
 	fmt.Println(viper.GetString("appname"))
+}
+
+func addCommands() {
+	RootCmd.AddCommand(fetchCmd)
 }
